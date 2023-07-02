@@ -1,0 +1,30 @@
+<!-- search_results.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<style>
+    body{
+        background-color: rgb(39, 176, 255);
+        display: flex;
+    }
+    h1{
+        color: brown;
+    }
+</style>
+<body>
+    <div>
+        <h1>Search Results</h1>
+        <ul>
+            {% for result in results %}
+            <li><span>Start Time :</span>{{ result.start_time }}</li>
+            <li><span>End Time :</span>{{ result.end_time }}</li>
+            <li><span>Keyword Text :</span>{{ result.text }}</li>
+            <div style="margin-bottom:20px"></div>
+    
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

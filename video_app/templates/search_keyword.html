@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Search</title>
+</head>
+<style>
+    body{
+        background-color: rgb(39, 176, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h1{
+        color: brown;
+    }
+</style>
+<body>
+    <div>
+        <h1>Video Search</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <form method="post" action="{% url 'search_keyword' %}">
+        {% csrf_token %}
+        <input type="text" name="keywords" placeholder="Enter keywords">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+</body>
+</html>

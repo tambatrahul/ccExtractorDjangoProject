@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Upload</title>
+    
+</head>
+<style>
+    body{
+        background-color: rgb(39, 176, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h1{
+        color: brown;
+    }
+    form{
+        display: flex;
+    }
+    .upload_button{
+        height: 30px;
+        margin-top: 10px;
+        padding: 5px;
+    }
+    .search {
+        background-color: #008CBA; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 50px;
+        margin-left: 50px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+</style>
+<body>
+    <div>
+        <h1>Video Upload</h1>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+        <form method="post" action="{% url 'upload' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="upload_button" type="submit">Upload Video</button>
+        </form>
+
+        <button class="search" onclick="redirectToNextPage()">Seacrh Keyword in uploaded video</button>
+    </div>
+    
+
+<script>
+function redirectToNextPage() {
+    window.location.href = "{% url 'search_keyword' %}";
+}
+</script>
+</body>
+</html>
